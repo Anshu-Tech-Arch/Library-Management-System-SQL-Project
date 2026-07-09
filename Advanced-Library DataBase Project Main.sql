@@ -44,5 +44,57 @@ CREATE TABLE ReturnStatus(
     Return_date date not null,
     Foreign key (Issue_id) references IssueStatus(Issue_id)
 );
+ALTER TABLE Books MODIFY Status ENUM('Available', 'Issued');
+INSERT INTO Branch (Branch_id, Manager_id, Branch_address, Contact_no)
+VALUES
+('B001', 'M101', 'Dwarka Sector 6', '+919876543210'),
+('B002', 'M102', 'Janakpuri', '+919876543211'),
+('B003', 'M103', 'Rohini Sector 9', '+919876543212'),
+('B004', 'M104', 'Pitampura', '+919876543213'),
+('B005', 'M105', 'Rajouri Garden', '+919876543214');
 
+INSERT INTO Books
+(Book_id, Book_title, Category, Rental_price, Status, Author, Publisher)
+VALUES
+('BK101','The Alchemist','Fiction',30,'Available','Paulo Coelho','HarperOne'),
+('BK102','Atomic Habits','Self Help',40,'Issued','James Clear','Penguin'),
+('BK103','Rich Dad Poor Dad','Finance',35,'Available','Robert Kiyosaki','Plata'),
+('BK104','Harry Potter','Fantasy',50,'Issued','J.K. Rowling','Bloomsbury'),
+('BK105','The Psychology of Money','Finance',45,'Available','Morgan Housel','Jaico'),
+('BK106','Think and Grow Rich','Motivation',30,'Available','Napoleon Hill','Fingerprint'),
+('BK107','Deep Work','Productivity',38,'Available','Cal Newport','Grand Central'),
+('BK108','Clean Code','Programming',60,'Issued','Robert C. Martin','Prentice Hall');
+
+INSERT INTO Customers
+(Customer_name, Customer_address, Reg_date)
+VALUES
+('Ansh Poddar','Dwarka','2025-01-10'),
+('Rahul Sharma','Janakpuri','2025-02-15'),
+('Priya Verma','Uttam Nagar','2025-03-12'),
+('Aman Gupta','Rohini','2025-04-08'),
+('Sneha Kapoor','Pitampura','2025-05-21'),
+('Riya Singh','Rajouri Garden','2025-06-02');
+
+INSERT INTO Employee
+(Employee_name, Employee_role, Employee_salary, Employee_branch)
+VALUES
+('Amit Kumar','Manager',65000,'B001'),
+('Neha Sharma','Librarian',50000,'B001'),
+('Rohan Mehta','Assistant',35000,'B002'),
+('Karan Singh','Clerk',32000,'B003'),
+('Pooja Verma','Assistant',36000,'B004'),
+('Vikas Yadav','Manager',67000,'B005');
+
+INSERT INTO IssueStatus
+(Customer_id, Book_id, Issue_date)
+VALUES
+(1,'BK102','2026-07-01'),
+(2,'BK104','2026-07-02'),
+(3,'BK108','2026-07-03');
+
+INSERT INTO ReturnStatus
+(Issue_id, Return_date)
+VALUES
+(1,'2026-07-10'),
+(2,'2026-07-11');
 
