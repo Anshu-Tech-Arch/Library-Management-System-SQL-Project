@@ -97,4 +97,8 @@ INSERT INTO ReturnStatus
 VALUES
 (1,'2026-07-10'),
 (2,'2026-07-11');
-
+Select * from Books where status='Available'; 
+Select Book_title, Author, Rental_price from Books where status='Available';
+Select Employee_name, Employee_role, Employee_salary from Employee order by Employee_salary DESC;
+Select Category, count(*) from Books group by Category;
+Select Category from books group by Category having count(*)>2;
