@@ -102,3 +102,5 @@ Select Book_title, Author, Rental_price from Books where status='Available';
 Select Employee_name, Employee_role, Employee_salary from Employee order by Employee_salary DESC;
 Select Category, count(*) from Books group by Category;
 Select Category from books group by Category having count(*)>2;
+Select Customers.Customer_name, Books.book_title from Customers Inner join IssueStatus on Customers.Customer_id=IssueStatus.Customer_id Inner join Books on IssueStatus.book_id=Books.book_id;
+Select CustomersCustomer_name 
