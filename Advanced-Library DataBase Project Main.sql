@@ -103,4 +103,8 @@ Select Employee_name, Employee_role, Employee_salary from Employee order by Empl
 Select Category, count(*) from Books group by Category;
 Select Category from books group by Category having count(*)>2;
 Select Customers.Customer_name, Books.book_title from Customers Inner join IssueStatus on Customers.Customer_id=IssueStatus.Customer_id Inner join Books on IssueStatus.book_id=Books.book_id;
-Select CustomersCustomer_name 
+SELECT Customers.Customer_name
+FROM Customers
+LEFT JOIN IssueStatus
+ON Customers.Customer_id = IssueStatus.Customer_id
+WHERE IssueStatus.Customer_id IS NULL;
