@@ -110,5 +110,22 @@ ON Customers.Customer_id = IssueStatus.Customer_id
 WHERE IssueStatus.Customer_id IS NULL;
 select Employee_branch, sum(Employee_salary) from Employee group by Employee_branch;
 select Employee_branch, avg(Employee_salary) from Employee group by Employee_branch;
-select max(Employee_salary), min(Employee_salary) 
+select 
+max(Employee_salary), 
+min(Employee_salary) 
 from Employee;
+select 
+Employee_name 
+from 
+Employee 
+where 
+Employee_salary>(Select avg(Employee_salary) from Employee);
+select 
+e.Employee_name
+From Employee as e 
+inner join
+Branch as b 
+where
+Employee_branch=Branch_id
+having
+Employee_salary>(select avg(Employee_salary) from Employee);
