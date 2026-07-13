@@ -120,12 +120,6 @@ from
 Employee 
 where 
 Employee_salary>(Select avg(Employee_salary) from Employee);
-select 
-e.Employee_name
-From Employee as e 
-inner join
-Branch as b 
-where
-Employee_branch=Branch_id
-having
-Employee_salary>(select avg(Employee_salary) from Employee);
+SELECT e.Employee_name, e.Employee_salary, e.Employee_branch
+FROM Employee AS e
+WHERE e.Employee_salary >(SELECT AVG(Employee_salary) FROM Employee WHERE Employee_branch = e.Employee_branch);
