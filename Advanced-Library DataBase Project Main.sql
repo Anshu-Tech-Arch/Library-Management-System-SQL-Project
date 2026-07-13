@@ -109,4 +109,6 @@ LEFT JOIN IssueStatus
 ON Customers.Customer_id = IssueStatus.Customer_id
 WHERE IssueStatus.Customer_id IS NULL;
 select Employee_branch, sum(Employee_salary) from Employee group by Employee_branch;
-select Employee_branch, avg(Employee_salary) from Employee group by Employee_branch; 
+select Employee_branch, avg(Employee_salary) from Employee group by Employee_branch;
+select max(Employee_salary), min(Employee_salary) 
+from Employee;
