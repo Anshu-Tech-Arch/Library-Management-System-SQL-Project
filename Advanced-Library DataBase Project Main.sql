@@ -132,3 +132,8 @@ having count(I.Customer_id)>1;
 SELECT I.Customer_id, COUNT(*)   #Optimized Version of above querry
 FROM IssueStatus AS I
 GROUP BY I.Customer_id;
+Select B.Book_title, I.Book_id
+from Books as B
+Left join IssueStatus as I
+On B.Book_id=I.book_id
+Where I.Book_id is null;
