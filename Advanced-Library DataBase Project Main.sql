@@ -140,3 +140,7 @@ Where I.Book_id is null;
 Select Book_title 
 from Books
 where Book_id not in (Select book_id from IssueStatus);
+Select c.Customer_name 
+from Customers as c
+inner join IssueStatus as i
+on c.Customer_id=i.Customer_id;
