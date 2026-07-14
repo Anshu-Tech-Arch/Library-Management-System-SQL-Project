@@ -144,3 +144,7 @@ Select c.Customer_name
 from Customers as c
 inner join IssueStatus as i
 on c.Customer_id=i.Customer_id;
+select Customer_name
+from Customers AS c
+where EXISTS
+(select * from IssueStatus as i where i.Customer_id = c.Customer_id);
