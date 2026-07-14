@@ -137,3 +137,6 @@ from Books as B
 Left join IssueStatus as I
 On B.Book_id=I.book_id
 Where I.Book_id is null;
+Select Book_title 
+from Books
+where Book_id not in (Select book_id from IssueStatus);
