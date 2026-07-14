@@ -120,6 +120,15 @@ from
 Employee 
 where 
 Employee_salary>(Select avg(Employee_salary) from Employee);
-SELECT e.Employee_name, e.Employee_salary, e.Employee_branch
-FROM Employee AS e
-WHERE e.Employee_salary >(SELECT AVG(Employee_salary) FROM Employee WHERE Employee_branch = e.Employee_branch);
+Select Employee_name, Employee_branch, Employee_salary
+from Employee as outer_table
+where Employee_salary>(Select avg(Employee_salary) from Employee as e where e.Employee_branch=outer_table.Employee_branch);
+Select C.Customer_name, C.Customer_id         
+from Customers as C
+inner Join IssueStatus as I 
+on C.Customer_id=I.Customer_id 
+Group by I.Customer_id 
+having count(I.Customer_id)>1;
+SELECT I.Customer_id, COUNT(*)   #Optimized Version of above querry
+FROM IssueStatus AS I
+GROUP BY I.Customer_id;
