@@ -151,3 +151,6 @@ where EXISTS
 Select Category, max(Rental_price)
 from Books as b
 Group by Category;
+Select Customer_id, count(*) 
+from IssueStatus as i
+group by Customer_id
