@@ -148,3 +148,6 @@ select Customer_name
 from Customers AS c
 where EXISTS
 (select * from IssueStatus as i where i.Customer_id = c.Customer_id);
+Select Category, max(Rental_price)
+from Books as b
+Group by Category;
