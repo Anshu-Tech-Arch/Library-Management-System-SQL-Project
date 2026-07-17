@@ -153,4 +153,10 @@ from Books as b
 Group by Category;
 Select Customer_id, count(*) 
 from IssueStatus as i
-group by Customer_id
+group by Customer_id;
+Select C.Customer_name, B.Book_title, I.Issue_date
+from Issuestatus as I 
+Inner join Books as B 
+on I.Book_id=B.Book_id
+Inner join Customers as C
+on C.Customer_id=I.Customer_id;
