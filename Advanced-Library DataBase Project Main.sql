@@ -169,3 +169,21 @@ INNER JOIN Customers AS C
 ON C.Customer_id = I.Customer_id;
 Select * from IssuedBooks;
 Call Available_Books;
+SELECT E.Employee_name             #Example querry
+FROM Employee as E 
+WHERE E.Employee_salary>(
+		Select avg(T.Employee_salary) 
+        FROM Employee as T
+        );
+WITH AverageSalary as 
+(
+	Select avg(Employee_salary) as AvgSalary
+    FROM Employee
+)
+SELECT Employee_name, Employee_salary
+FROM Employee
+WHERE Employee_salary >
+(
+    SELECT AvgSalary
+    FROM AverageSalary
+);
