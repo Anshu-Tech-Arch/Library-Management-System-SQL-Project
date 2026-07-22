@@ -168,3 +168,4 @@ ON I.Book_id = B.Book_id
 INNER JOIN Customers AS C
 ON C.Customer_id = I.Customer_id;
 Select * from IssuedBooks;
+Call Available_Books;
