@@ -160,3 +160,11 @@ Inner join Books as B
 on I.Book_id=B.Book_id
 Inner join Customers as C
 on C.Customer_id=I.Customer_id;
+CREATE VIEW IssuedBooks AS
+SELECT C.Customer_name, B.Book_title, I.Issue_date
+FROM IssueStatus AS I
+INNER JOIN Books AS B
+ON I.Book_id = B.Book_id
+INNER JOIN Customers AS C
+ON C.Customer_id = I.Customer_id;
+Select * from IssuedBooks;
