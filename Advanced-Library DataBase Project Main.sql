@@ -187,3 +187,16 @@ WHERE Employee_salary >
     SELECT AvgSalary
     FROM AverageSalary
 );
+
+Select Employee_name, Employee_salary, rank() over (order by Employee_salary desc) as RankNo
+From Employee
+Order by Employee_salary desc;
+Select E.Employee_name, E.Employee_salary, rank() over(order by Employee_salary desc) as RankNo
+From Employee as E
+Order By E.Employee_salary desc limit 3;
+Select B.Book_id, B.Book_title, Count(*)
+from Books as B
+Inner join IssueStatus as I
+On B.Book_id=I.Book_id
+group by I.Book_id
+Order by count(*) desc limit 1;
